@@ -9,7 +9,6 @@ Pages:
 - Home
 - Projects
 - Works
-- Search
 
 ## Inspirations
 

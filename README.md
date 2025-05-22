@@ -2,7 +2,7 @@
 
 ![Logo](/salasa.id/assets/salasa-logo-dark.png)
 
-> Hi, this is my personal website.
+> Hi, my name is Salasa and this is my personal website.
 
 Pages:
 

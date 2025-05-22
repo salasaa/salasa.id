@@ -41,6 +41,7 @@ Projects:
 
 - [Project 1](https://salasa.id)
 - [Project 2](#)
+- [Project 3](#)
 
 ## Contact
 

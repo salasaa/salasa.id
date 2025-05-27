@@ -1,0 +1,232 @@
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  background-color: #18181b; /* gray-900 */
+  color: #d4d4d8; /* gray-200 */
+}
+header {
+  /* padding: 1rem 2rem; */
+  /* background-color: #000; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+}
+header nav a {
+  color: #cccccc;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 16px;
+  color: #16a34a; /* green-600 */
+  font-weight: 500;
+  margin: 0.5rem 0;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+/* Light mode class */
+body.light-mode .nav a {
+  color: black;
+}
+
+/* Toggle Mode Circles */
+.toggle-mode {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.toggle-mode .circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3c393954;
+  border-radius: 50%;
+}
+
+.profile {
+  text-align: center;
+  margin-top: 2rem;
+}
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+.profile h1 {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  font-family: "caveat", cursive;
+}
+.profile p {
+  color: #aaa;
+}
+.buttons {
+  margin: 1rem 0;
+}
+.buttons button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background-color: #494949;
+  color: #000;
+}
+.btn-secondary {
+  background-color: #444;
+  color: #fff;
+}
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+.tech-stacks span,
+.tools span {
+  display: inline-block;
+  background-color: #222;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin: 0.3rem;
+}
+.footer {
+  background-color: #3f3f46; /* gray-700 */
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  overflow: visible; /* penting supaya yang keluar tetap kelihatan */
+}
+.socials img {
+  width: 24px;
+  margin: 0 0.5rem;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.polaroid-wrapper {
+  position: absolute;
+  top: -120px; /* naik ke atas, ubah sesuai keinginan */
+  right: 40px; /* atau atur ke kiri */
+}
+
+.polaroid img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  margin: 0 10px;
+  color: white;
+  transition: 0.3s;
+  font-size: 24px;
+}
+a:hover {
+  color: #4c4c4c; /* misal hover jadi biru */
+}
+
+/* Polaroid Styles */
+
+.polaroid {
+  margin: 5px 0;
+  float: left;
+}
+
+.polaroid a {
+  border-radius: 5px;
+  background: #e4e4e7;
+  display: inline;
+  float: left;
+  margin: 0 5px 10px;
+  padding: 10px 10px 45px;
+  font-family: haleluiah, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  /* text-decoration: none; */
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  z-index: 0;
+}
+
+.polaroid a:after {
+  color: #333;
+  font-size: 20px;
+  content: attr(title);
+  position: relative;
+  top: 15px;
+}
+.polaroid img {
+  border-radius: 8px;
+  display: block;
+  width: inherit;
+}
+
+.polaroid a:nth-child(2n) {
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+.polaroid a:nth-child(3n) {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+.polaroid a:nth-child(4n) {
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+
+.polaroid a:nth-child(5n) {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.polaroid a:nth-child(6n) {
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+.polaroid a:nth-child(7n) {
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  transform: rotate(8deg);
+}
+
+.polaroid a:hover {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  transform: scale(1.2);
+  z-index: 10;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}

@@ -2,7 +2,7 @@
 
 ![Logo](/salasa.id/assets/salasa-logo-dark.png)
 
-> Hi, my name is Salasa and this is my personal website.
+> Hi, my name is Salasa, and this is my personal website.
 
 Pages:
 
@@ -34,7 +34,7 @@ Skills:
 
 Testimonials:
 
-> "Positive words from clients or colleagues."
+> "Positive feedback from clients or colleagues."
 
 Projects:
 
@@ -50,5 +50,5 @@ Social Media:
 
 ## Screenshots
 
-- Home
+- Home  
   ![Home](/salasa.id/assets/home-dark.jpeg)

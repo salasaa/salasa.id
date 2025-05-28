@@ -26,7 +26,7 @@
       <div class="de-flex-col">
         <!-- logo begin -->
         <div id="logo">
-          <a href="assets/images/salasa-logo-dark.png" title="salasa.id">
+          <a href="index.html" title="salasa.id">
             <img
               alt="salasa.id"
               src="assets/images/salasa-logo-dark.png"
@@ -46,7 +46,34 @@
             <a class="nav-link" href="#">Works</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" id="contactBtn" href="#">Contact</a>
+            <div id="overlay" class="overlay hidden">
+              <button id="closeBtn" class="close-btn">&times;</button>
+              <div class="social-menu">
+                <ul>
+                  <li>
+                    <a href="https://linkedin.com/in/salasaakhr" target="_blank"
+                      ><i class="fab fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/salasaa" target="_blank">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://t.me/salasaakhr" target="_blank">
+                      <i class="fab fa-telegram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:akhirudinsalasa@gmail.com" target="_blank">
+                      <i class="fab fa-google"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
         </ul>
       </nav>
@@ -220,3 +247,22 @@
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
   crossorigin="anonymous"
 ></script>
+<script>
+  const contactBtn = document.getElementById("contactBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const overlay = document.getElementById("overlay");
+
+  contactBtn.addEventListener("click", () => {
+    overlay.classList.remove("hidden");
+    setTimeout(() => {
+      overlay.classList.add("show");
+    }, 10);
+  });
+
+  closeBtn.addEventListener("click", () => {
+    overlay.classList.remove("show");
+    setTimeout(() => {
+      overlay.classList.add("hidden");
+    }, 500); // tunggu sampai transisi selesai
+  });
+</script>

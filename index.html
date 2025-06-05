@@ -42,10 +42,10 @@
       <div class="de-flex-col">
         <!-- logo begin -->
         <div id="logo">
-          <a href="index.html" title="salasa.id">
+          <a href="/" title="salasa.id">
             <img
               alt="salasa.id"
-              src="assets/icons/salasa-logo-light.svg"
+              src="/assets/icons/salasa-logo-light.svg"
               width="100"
               height="100"
             />
@@ -278,42 +278,42 @@
         </div>
       </div>
     </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const contactBtn = document.getElementById("contactBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      const overlay = document.getElementById("overlay");
+
+      contactBtn.addEventListener("click", () => {
+        overlay.classList.remove("hidden");
+        setTimeout(() => {
+          overlay.classList.add("show");
+        }, 10);
+      });
+
+      closeBtn.addEventListener("click", () => {
+        overlay.classList.remove("show");
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+        }, 500); // transition duration
+      });
+    </script>
+
+    <!-- sticky header -->
+    <script>
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("main-header");
+        if (window.scrollY > 10) {
+          header.classList.add("scrolled-header");
+        } else {
+          header.classList.remove("scrolled-header");
+        }
+      });
+    </script>
   </body>
 </html>
-
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-  crossorigin="anonymous"
-></script>
-<script>
-  const contactBtn = document.getElementById("contactBtn");
-  const closeBtn = document.getElementById("closeBtn");
-  const overlay = document.getElementById("overlay");
-
-  contactBtn.addEventListener("click", () => {
-    overlay.classList.remove("hidden");
-    setTimeout(() => {
-      overlay.classList.add("show");
-    }, 10);
-  });
-
-  closeBtn.addEventListener("click", () => {
-    overlay.classList.remove("show");
-    setTimeout(() => {
-      overlay.classList.add("hidden");
-    }, 500); // transition duration
-  });
-</script>
-
-<!-- sticky header -->
-<script>
-  window.addEventListener("scroll", function () {
-    const header = document.getElementById("main-header");
-    if (window.scrollY > 10) {
-      header.classList.add("scrolled-header");
-    } else {
-      header.classList.remove("scrolled-header");
-    }
-  });
-</script>

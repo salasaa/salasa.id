@@ -1,6 +1,6 @@
 # salasa.id
 
-![Logo](/salasa.id/assets/salasa-logo-dark.png)
+![Logo](/assets/icons/salasa-logo-dark.svg)
 
 > Hi, my name is Salasa, and this is my personal website.
 
@@ -38,7 +38,7 @@ Testimonials:
 
 Projects:
 
-- [Project 1](https://salasa.id)
+- [Personal Website](https://salasa.id)
 - [Project 2](#)
 
 ## Contact
@@ -51,4 +51,4 @@ Social Media:
 ## Screenshots
 
 - Home  
-  ![Home](/salasa.id/assets/home-dark.jpeg)
+  ![Home](/assets/images/home-dark.jpeg)

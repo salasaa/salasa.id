@@ -47,7 +47,12 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
 }
-
+h4 {
+  font-size: 1rem;
+  color: #a1a1aa; /* gray-400 */
+  font-weight: 600;
+  margin: 1rem 0;
+}
 /* Light mode class */
 body.light-mode .nav a {
   color: black;

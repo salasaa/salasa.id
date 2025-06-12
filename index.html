@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-white dark:bg-gray-950">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,186 +10,278 @@
       name="description"
       content="Welcome! I'm Akhirudin Salasa, a web developer who’s passionate about clean design, thoughtful code, and building digital experiences that matter."
     />
-    <meta
-      name="keywords"
-      content="Akhirudin Salasa, Salasa, Salasaa, salasaakhr, Web Development, Software Engineer, Web Developer Frontend Developer, Backend Developer, HTML, CSS, JavaScript, Bootstrap, WordPress, Elementor, GitHub, VS Code, Cloudflare, Figma, Canva"
-    />
     <meta name="author" content="Akhirudin Salasa" />
-    <meta name="theme-color" content="dark" />
+    <meta name="theme-color" content="#16a34a" />
     <link
       rel="icon"
       href="/assets/icons/salasa-logo-favicon.svg"
       type="image/x-icon"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/assets/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              caveat: ["Caveat", "cursive"],
+              gloria: ["Gloria Hallelujah", "cursive"],
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <header id="main-header" class="normal-header">
-      <div class="de-flex-col">
-        <!-- logo begin -->
-        <div id="logo">
-          <a href="/" title="salasa.id">
-            <img
-              alt="salasa.id"
-              src="/assets/icons/salasa-logo-light.svg"
-              width="100"
-              height="100"
-            />
+  <body
+    class="font-inter bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col"
+  >
+    <!-- Header -->
+    <header
+      class="site-header w-full bg-white/30 dark:bg-gray-950/50 backdrop-blur-2xl sticky top-0 z-30 transition-all duration-300"
+    >
+      <div
+        class="max-w-4xl mx-auto flex items-center justify-between py-4 px-4 gap-4"
+      >
+        <a
+          href="/"
+          class="flex items-center gap-2 font-bold text-green-400 text-xl"
+        >
+          <img
+            alt="salasa.id"
+            src="/assets/icons/salasa-logo-light.svg"
+            class="w-20 h-20"
+          />
+        </a>
+        <nav class="flex gap-6 text-sm font-inter font-medium">
+          <a href="/" class="text-white-400">Home</a>
+          <a href="/projects" class="hover:text-white-700 transition"
+            >Projects</a
+          >
+          <a href="/works" class="hover:text-white-700 transition">Works</a>
+          <a href="/contact" class="hover:text-white-700 transition">Contact</a>
+        </nav>
+        <!-- Search & Dark Mode Toggle -->
+        <div class="flex items-center gap-1">
+          <!-- Search Toggle Button -->
+          <a
+            href="/search"
+            aria-label="Go to search page"
+            class="p-2 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
           </a>
+          <!-- Dark/Light Toggle Button -->
+          <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            class="p-2 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-yellow-500 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            <svg
+              id="icon-sun"
+              class="h-5 w-5 block dark:hidden"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="5" stroke="currentColor" />
+              <path
+                stroke-linecap="round"
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              />
+            </svg>
+            <svg
+              id="icon-moon"
+              class="h-5 w-5 hidden dark:block"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
+              />
+            </svg>
+          </button>
         </div>
-        <!-- logo close -->
-      </div>
-      <nav class="navbar navbar-expand-sm navbar-dark">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/works">Works</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="contactBtn" href="#">Contact</a>
-            <div id="overlay" class="overlay hidden">
-              <button id="closeBtn" class="close-btn">&times;</button>
-              <div class="social-menu">
-                <h2
-                  style="
-                    text-align: center;
-                    padding-top: 200px;
-                    width: 100%;
-                    font-weight: 700;
-                    font-size: 1rem;
-                  "
-                >
-                  You can contact me from ...
-                </h2>
-                <ul>
-                  <li>
-                    <a href="https://linkedin.com/in/salasaakhr" target="_blank"
-                      ><i class="fab fa-linkedin"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/salasaa" target="_blank">
-                      <i class="fab fa-github"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://t.me/salasaakhr" target="_blank">
-                      <i class="fab fa-telegram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="mailto:akhirudinsalasa@gmail.com" target="_blank">
-                      <i class="fab fa-google"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <div class="toggle-mode" id="themeToggle">
-        <div class="circle"><i class="fas fa-search"></i></div>
-        <div class="circle"><i class="fas fa-sun"></i></div>
       </div>
     </header>
-    <main>
-      <div class="profile">
-        <img src="/assets/images/profil-picture.png" alt="Profile" />
-        <h1>AKHIRUDIN SALASA</h1>
-        <p>Software Engineer</p>
-        <div class="buttons">
-          <button class="btn-primary">View my project</button>
-          <button class="btn-secondary">View my work</button>
-        </div>
-      </div>
 
-      <section>
+    <main class="flex-1 w-full max-w-4xl mx-auto px-4 py-12">
+      <!-- Profile -->
+      <section class="flex flex-col items-center gap-4 mb-12 p-6">
+        <img
+          src="/assets/images/profil-picture.png"
+          alt="Profile"
+          class="w-32 h-32 rounded-full shadow-lg"
+        />
+        <h1
+          class="text-3xl font-gloria font-bold text-gray-900 dark:text-gray-100 tracking-tight"
+        >
+          AKHIRUDIN SALASA
+        </h1>
+        <p class="text-lg text-green-400 font-semibold">Software Engineer</p>
+        <div class="flex gap-4 mt-2">
+          <a
+            href="/projects"
+            class="px-6 py-2 rounded bg-green-600 text-white font-semibold hover:bg-green-700 transition"
+            >View my project</a
+          >
+          <a
+            href="/works"
+            class="px-6 py-2 rounded border border-green-600 text-green-400 font-semibold hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+            >View my work</a
+          >
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="mb-12 p-6">
         <h2
-          class="text-sm font-medium uppercase tracking-widest text-green-600 dark:text-green-400"
+          class="text-sm font-medium uppercase tracking-widest text-green-400 mb-2"
         >
           About Me
         </h2>
-        <p
-          class="text-sm font-medium uppercase tracking-widest text-green-600 dark:text-green-300mt-2"
-        >
-          Hello, my name is <strong>Akhirudin Salasa</strong>.
+        <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
+          Hello, my name is
+          <strong class="font-gloria text-green-400">Akhirudin Salasa</strong>.
         </p>
-        <p>
+        <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
           I'm a software developer with over two years of experience. I started
           out in Chemical Engineering, but eventually found my true passion in
-          tech. Today, I focus on web development always learning, always
+          tech. Today, I focus on web development—always learning, always
           building, and driven to create digital solutions that make a real
           impact.
         </p>
-        <p>
+        <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
           I live in Semarang with my amazing wife, Puspita, and our energetic
           2-year-old son. They're my greatest source of joy and inspiration.
         </p>
-        <p
-          class="text-sm font-medium uppercase tracking-widest text-green-600 dark:text-green-300 mt-2"
-        >
+        <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
           Let’s connect and create something meaningful together!
         </p>
-        <div class="socials mt-5" style="justify-content: center">
-          <a href="https://linkedin.com/in/salasaakhr" target="_blank"
-            ><i class="fab fa-linkedin fa-2x"></i
+        <div class="flex gap-6 justify-center mt-6">
+          <a
+            href="https://linkedin.com/in/salasaakhr"
+            target="_blank"
+            class="text-green-400 hover:text-green-300 text-2xl"
+            ><i class="fab fa-linkedin"></i
           ></a>
-          <a href="https://github.com/salasaa" target="_blank"
-            ><i class="fab fa-github fa-2x"></i
+          <a
+            href="https://github.com/salasaa"
+            target="_blank"
+            class="text-green-400 hover:text-green-300 text-2xl"
+            ><i class="fab fa-github"></i
           ></a>
-          <a href="https://t.me/salasaakhr" target="_blank"
-            ><i class="fab fa-telegram fa-2x"></i
+          <a
+            href="https://t.me/salasaakhr"
+            target="_blank"
+            class="text-green-400 hover:text-green-300 text-2xl"
+            ><i class="fab fa-telegram"></i
           ></a>
         </div>
       </section>
 
-      <section>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="polaroid m-0">
-              <a href=""
-                ><img height="180" src="https://placehold.co/200x200" alt="" />
-              </a>
-              <a href=""
-                ><img height="180" src="https://placehold.co/200x200" alt="" />
-              </a>
-              <a href=""
-                ><img height="180" src="assets/images/image-1.jpg" alt=""
+      <!-- Polaroid Gallery -->
+      <section class="py-10">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap justify-center gap-4">
+            <!-- Item 1 -->
+            <div
+              class="transform rotate-[-3deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-2xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-48 rounded"
+                  src="https://placehold.co/200x200"
+                  alt="Item 1"
               /></a>
-              <a href=""
-                ><img height="180" src="https://placehold.co/200x200" alt=""
-              /></a>
-              <a href=""
-                ><img height="180" src="https://placehold.co/200x200" alt=""
-              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 1</p>
+            </div>
 
-              <a href=""
-                ><img height="180" src="/assets/images/image-1.jpg" alt=""
+            <!-- Item 2 -->
+            <div
+              class="transform rotate-[5deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-2xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-48 rounded"
+                  src="https://placehold.co/200x200"
+                  alt="Item 2"
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 2</p>
+            </div>
+            <!-- Item 3 -->
+            <div
+              class="transform rotate-[-8deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-48 rounded"
+                  src="assets/images/image-1.jpg"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 3</p>
+            </div>
+            <!-- Item 4 -->
+            <div
+              class="transform rotate-[3deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-48 rounded"
+                  src="https://placehold.co/200x200"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 4</p>
+            </div>
+            <!-- Item 5 -->
+            <div
+              class="transform rotate-[-5deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-48 rounded"
+                  src="https://placehold.co/200x200"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 5</p>
+            </div>
+            <!-- Item 6 -->
+            <div
+              class="transform rotate-[7deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-48 rounded"
+                  src="/assets/images/image-1.jpg"
+                  alt=""
               /></a>
               <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 6</p>
             </div>
@@ -197,127 +289,201 @@
         </div>
       </section>
 
-      <section>
-        <h2>My tech stacks</h2>
-        <h4>1. Development</h4>
-        <div class="tech-stacks">
-          <span>HTML</span><span>CSS</span><span>Bootstrap</span
-          ><span>WordPress</span> <span>Elementor</span><span>GitHub</span
-          ><span>VS Code</span><span>Cloudflare</span>
+      <!-- Tech Stacks -->
+      <section class="mb-12 p-6">
+        <h2 class="text-xl font-bold text-green-700 dark:text-green-400 mb-4">
+          My Tech Stacks
+        </h2>
+        <div class="mb-4">
+          <h4 class="font-semibold text-green-400">1. Development</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-black-100 dark:bg-black-900 text-black-700 dark:text-green-200 text-sm"
+              >HTML</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >CSS</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Bootstrap</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >WordPress</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Elementor</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >GitHub</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >VS Code</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Cloudflare</span
+            >
+          </div>
         </div>
-        <h4>2. Design</h4>
-        <div class="tools"><span>Figma</span><span>Canva</span></div>
-        <h4>3. Productivity</h4>
-        <div class="tools">
-          <span>Google Docs</span><span>Google Sheets</span
-          ><span>Google Slides</span><span>Google Drive</span
-          ><span>Google Workspaces</span><span>Trello</span><span>Notion</span>
+        <div class="mb-4">
+          <h4 class="font-semibold text-green-400">2. Design</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Figma</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Canva</span
+            >
+          </div>
         </div>
-        <h4>4. Communication</h4>
-        <div class="tools">
-          <span>WhatsApp</span><span>Telegram</span><span>Discord</span
-          ><span>Email</span>
+        <div class="mb-4">
+          <h4 class="font-semibold text-green-400">3. Productivity</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Google Docs</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Google Sheets</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Google Slides</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Google Drive</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Google Workspaces</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Trello</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Notion</span
+            >
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-green-400">4. Communication</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >WhatsApp</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Telegram</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Discord</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 text-sm"
+              >Email</span
+            >
+          </div>
         </div>
       </section>
 
-      <div class="section">
-        <div class="footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-6" style="text-align: left; padding-left: 50px">
-                <p>Keep in touch</p>
-                <p>
-                  I welcome new opportunities and collaborations. If you have a
-                  relevant project or initiative and would like to work
-                  together, I am happy to open the floor for discussion.
-                </p>
-                <nav class="navbar navbar-dark">
-                  <div class="container-fluid">
-                    <form class="d-flex" style="margin: 0; gap: 1rem">
-                      <input
-                        class="form-control me-2"
-                        type="email"
-                        placeholder="your email"
-                        aria-label="email"
-                      />
-                      <button class="btn btn-outline-success" type="Sign up">
-                        Submit
-                      </button>
-                    </form>
-                  </div>
-                </nav>
-              </div>
-              <div class="col-6">
-                <footer class="footer">
-                  <div class="footer-content">
-                    <div class="polaroid-wrapper">
-                      <div class="polaroid" style="padding-right: 50px">
-                        <a href=""
-                          ><img
-                            height="180"
-                            src="/assets/images/image-1.jpg"
-                            alt=""
-                        /></a>
-                      </div>
-                    </div>
-                  </div>
-                </footer>
-              </div>
+      <!-- Footer -->
+      <footer
+        class="w-full top-0 z-0 bg-white/40 dark:bg-black/50 backdrop-blur-sm"
+      >
+        <!-- Polaroid floating above the footer -->
+        <!-- <div class="absolute left-1/2 -translate-x-1/2 -top-10 z-10">
+          <div
+            class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-2 rotate-3 border border-gray-200 dark:border-gray-800"
+          >
+            <img
+              src="/assets/images/image-1.jpg"
+              alt="Akhirudin & Family"
+              class="w-28 h-28 object-cover rounded-md shadow"
+            />
+            <div
+              class="text-center text-xs text-gray-700 dark:text-gray-200 font-gloria mt-2"
+            >
+              Akhirudin & Family
             </div>
           </div>
-          <div class="socials mt-5">
-            <a href="https://linkedin.com/in/salasaakhr" target="_blank"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a href="https://github.com/salasaa" target="_blank"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="https://t.me/salasaakhr" target="_blank"
-              ><i class="fab fa-telegram"></i
-            ></a>
-          </div>
-          <p style="margin-top: 1rem; font-size: 0.9rem; color: #a1a1aa">
-            Copyright 2025, Akhirudin Salasa
+        </div> -->
+        <div
+          class="max-w-4xl mx-auto px-4 pt-20 pb-10 flex flex-col items-center"
+        >
+          <h3 class="font-gloria text-2xl text-green-500 mb-2">
+            Let’s Connect!
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4 max-w-xs text-center">
+            Open for collaboration, project, or just say hi. Reach me via email
+            or social media below.
           </p>
+          <form class="flex gap-2 mb-4">
+            <input
+              type="email"
+              placeholder="your email"
+              aria-label="email"
+              class="px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <button
+              type="submit"
+              class="px-4 py-2 rounded bg-green-700 text-white font-semibold hover:bg-green-800 transition"
+            >
+              Submit
+            </button>
+          </form>
+          <div class="flex gap-4 mt-2">
+            <a
+              href="mailto:akhirudin.salasa@gmail.com"
+              class="text-green-400 hover:text-green-300 text-2xl"
+              title="Email"
+            >
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/salasaakhr"
+              target="_blank"
+              class="text-green-400 hover:text-green-300 text-2xl"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/salasaa"
+              target="_blank"
+              class="text-green-400 hover:text-green-300 text-2xl"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://t.me/salasaakhr"
+              target="_blank"
+              class="text-green-400 hover:text-green-300 text-2xl"
+              title="Telegram"
+            >
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
         </div>
-      </div>
+        <p class="text-center text-xs text-gray-500 dark:text-gray-400 pb-6">
+          &copy; 2025 Akhirudin Salasa. All rights reserved.
+        </p>
+      </footer>
     </main>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      const contactBtn = document.getElementById("contactBtn");
-      const closeBtn = document.getElementById("closeBtn");
-      const overlay = document.getElementById("overlay");
-
-      contactBtn.addEventListener("click", () => {
-        overlay.classList.remove("hidden");
-        setTimeout(() => {
-          overlay.classList.add("show");
-        }, 10);
-      });
-
-      closeBtn.addEventListener("click", () => {
-        overlay.classList.remove("show");
-        setTimeout(() => {
-          overlay.classList.add("hidden");
-        }, 500); // transition duration
-      });
-    </script>
-
-    <!-- sticky header -->
-    <script>
-      window.addEventListener("scroll", function () {
-        const header = document.getElementById("main-header");
-        if (window.scrollY > 10) {
-          header.classList.add("scrolled-header");
-        } else {
-          header.classList.remove("scrolled-header");
-        }
-      });
-    </script>
+    <script src="/assets/main.js"></script>
   </body>
 </html>

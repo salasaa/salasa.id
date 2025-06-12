@@ -5,6 +5,7 @@ body {
   color: #d4d4d8; /* gray-200 */
   padding-top: 70px; /* top padding to avoid content being hidden behind the header */
 }
+
 header {
   /* padding: 1rem 2rem; */
   /* background-color: #000; */
@@ -90,7 +91,7 @@ body.light-mode .nav a {
 .profile h1 {
   margin-top: 1rem;
   font-size: 1.8rem;
-  font-family: "caveat", cursive;
+  font-family: "Caveat", cursive;
 }
 .profile p {
   color: #aaa;
@@ -397,5 +398,3 @@ a:hover {
     margin-top: 2rem;
   }
 }
-
-/* mobile menu */

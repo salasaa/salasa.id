@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gray-950">
+<html lang="en" class="bg-natural-900 dark:bg-gray-950">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
       content="Explore a curated selection of projects that highlight my technical skills and creative approach, from web apps to UI/UX experiments."
     />
     <meta name="author" content="Akhirudin Salasa" />
-    <meta name="theme-color" content="#16a34a" />
+
     <link
       rel="icon"
       href="/assets/icons/salasa-logo-favicon.svg"
@@ -23,9 +23,29 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              caveat: ["Caveat", "cursive"],
+              brush: ["Caveat Brush", "cursive"],
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body class="font-inter bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+  <body
+    class="font-inter bg-natural-900 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col"
+  >
     <!-- Header -->
     <header
       class="site-header w-full bg-white/30 dark:bg-gray-950/50 backdrop-blur-2xl sticky top-0 z-30 transition-all duration-300"
@@ -33,10 +53,7 @@
       <div
         class="max-w-4xl mx-auto flex items-center justify-between py-4 px-4 gap-4"
       >
-        <a
-          href="/"
-          class="flex items-center gap-2 font-bold text-green-400 text-xl"
-        >
+        <a href="/">
           <img
             alt="salasa.id"
             src="/assets/icons/salasa-logo-light.svg"
@@ -44,10 +61,10 @@
           />
         </a>
         <nav class="flex gap-6 text-sm font-inter font-medium">
-          <a href="/" class="text-gray-200">Home</a>
-          <a
-            href="/projects"
-            class="text-gray-400 hover:text-gray-200 transition"
+          <a href="/" class="text-gray-400 hover:text-gray-200 transition"
+            >Home</a
+          >
+          <a href="/projects" class="text-gray-900 dark:text-gray-100 font-bold"
             >Projects</a
           >
           <a href="/works" class="text-gray-400 hover:text-gray-200 transition"
@@ -121,90 +138,352 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1 w-full max-w-4xl mx-auto px-4 py-12">
-      <div class="flex flex-col items-center gap-4 mb-12">
+    <main
+      class="flex-1 w-full max-w-4xl mx-auto px-4 py-12"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <div class="flex flex-col items-center gap-4">
         <h1
-          class="text-3xl md:text-4xl font-bold text-green-400 tracking-tight"
+          class="text-lg font-medium uppercase tracking-widest text-green-400 mb-2"
         >
           My Projects
         </h1>
         <p class="text-lg text-gray-300 text-center max-w-2xl">
-          A curated selection of my favorite work—web apps, UI/UX experiments,
+          A curated selection of my favorite work web apps, UI/UX experiments,
           and tools I’ve built or contributed to. Each project reflects my
           passion for clean code, thoughtful design, and impactful solutions.
         </p>
       </div>
       <section>
-        <div class="grid sm:grid-cols-2 gap-8">
-          <!-- Project Card 1 -->
-          <div
-            class="bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition p-6 border border-gray-800 flex flex-col"
-          >
-            <img
-              src="https://placehold.co/600x300"
-              alt="Project 1"
-              class="rounded-lg mb-4 object-cover h-40 w-full border border-gray-800"
-            />
-            <h2 class="text-xl font-semibold text-green-400 mb-1">
-              Project Title 1
-            </h2>
-            <p class="text-gray-300 mb-3 flex-1">
-              Short description of the project, what it does, and why it’s cool.
+        <div
+          class="max-w-6xl mx-auto px-8 py-10 flex flex-col md:flex-row gap-10"
+        >
+          <!-- Sidebar kiri sticky -->
+          <div class="md:w-1/4 h-fit sticky top-10 self-start pt-20">
+            <p
+              class="text-green-500 text-xs tracking-widest font-semibold mb-1"
+            >
+              CONTENT
             </p>
-            <div class="flex gap-3 mt-auto">
-              <a href="#" class="text-green-400 hover:underline">
-                View Project
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-green-300"
-                title="GitHub"
-              >
-                <i class="fab fa-github"></i>
-              </a>
+            <h1 class="text-2xl font-bold mb-6">Things I've published</h1>
+            <div
+              class="flex md:flex-col gap-2 text-sm align-left md:items-start"
+            >
+              <button class="bg-zinc-800 px-3 py-1 rounded text-white">
+                <i class="fas fa-layer-group mr-2"></i>Everything
+              </button>
+              <button class="text-zinc-400 hover:text-white">
+                <i class="fas fa-file-alt mr-2"></i>Articles
+              </button>
+              <button class="text-zinc-400 hover:text-white">
+                <i class="fas fa-video mr-2"></i>Videos
+              </button>
+              <button class="text-zinc-400 hover:text-white">
+                <i class="fas fa-podcast mr-2"></i>Podcasts
+              </button>
+              <button class="text-zinc-400 hover:text-white">
+                <i class="fas fa-microphone mr-2"></i>Speaking
+              </button>
+              <button class="text-zinc-400 hover:text-white">
+                <i class="fas fa-chalkboard-teacher mr-2"></i>Courses
+              </button>
             </div>
           </div>
-          <!-- Project Card 2 -->
-          <div
-            class="bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition p-6 border border-gray-800 flex flex-col"
-          >
-            <img
-              src="https://placehold.co/600x300"
-              alt="Project 2"
-              class="rounded-lg mb-4 object-cover h-40 w-full border border-gray-800"
-            />
-            <h2 class="text-xl font-semibold text-green-400 mb-1">
-              Project Title 2
-            </h2>
-            <p class="text-gray-300 mb-3 flex-1">
-              Another project description, highlighting the stack or unique
-              features.
-            </p>
-            <div class="flex gap-3 mt-auto">
-              <a href="#" class="text-green-400 hover:underline">
-                View Project
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-green-300"
-                title="GitHub"
-              >
-                <i class="fab fa-github"></i>
-              </a>
+
+          <!-- Konten kanan panjang -->
+          <!-- Konten kanan -->
+          <div class="md:w-3/4 space-y-10 text-sm mt-20 pt-20">
+            <!-- FAVORITES section -->
+            <div>
+              <h3 class="text-xs text-zinc-500 uppercase mb-3 tracking-widest">
+                Favorites
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex justify-between items-start">
+                  <div class="flex gap-2">
+                    <!-- Icon -->
+                    <svg
+                      class="w-4 h-4 text-zinc-500 mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 10l4.55-2.27A1 1 0 0121 8.61v6.77a1 1 0 01-1.45.89L15 14M4 6h16M4 18h16"
+                      />
+                    </svg>
+                    <div>
+                      <a href="#" class="hover:underline font-medium text-white"
+                        >What if you tried hard?</a
+                      >
+                      <p class="text-xs text-zinc-500">
+                        aaronfrancis.com · 12.7k views
+                      </p>
+                    </div>
+                  </div>
+                  <span class="text-green-500">★</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div class="flex gap-2">
+                    <!-- Icon -->
+                    <svg
+                      class="w-4 h-4 text-zinc-500 mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 17v-2a4 4 0 014-4h3m4 4v1a3 3 0 01-3 3H5a2 2 0 01-2-2V6a2 2 0 012-2h11a2 2 0 012 2v4"
+                      />
+                    </svg>
+                    <div>
+                      <a href="#" class="hover:underline font-medium text-white"
+                        >An Introduction to Laravel Nova</a
+                      >
+                      <p class="text-xs text-zinc-500">
+                        Laravel YouTube · 60.5k views
+                      </p>
+                    </div>
+                  </div>
+                  <span class="text-green-500">★</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Garis pembatas -->
+            <hr class="border-zinc-700" />
+
+            <!-- 2025 section -->
+            <div>
+              <h3 class="text-xs text-zinc-500 uppercase mb-3 tracking-widest">
+                2025
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >From Prisma Founder to LiveStore</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 5.3k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+                <li class="flex gap-2">
+                  <!-- Icon -->
+                  <svg
+                    class="w-4 h-4 text-zinc-500 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v16h16V4H4z"
+                    />
+                  </svg>
+                  <div>
+                    <a href="#" class="hover:underline font-medium text-white"
+                      >Durable Objects & D1 Work</a
+                    >
+                    <p class="text-xs text-zinc-500">Personal · 8.0k views</p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-          <!-- Tambahkan project card lain di sini -->
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="w-full border-t border-gray-800 bg-gray-950/90 mt-16">
+    <footer
+      class="w-full border-t border-gray-200 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:border-gray-900 mt-auto border-t border-gray-200"
+    >
       <div
         class="max-w-4xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-8"
       >
         <div>
-          <p class="font-semibold text-lg text-green-400 mb-2">Let’s connect</p>
+          <h2
+            class="text-lg font-medium uppercase tracking-widest text-green-400 mb-2"
+          >
+            Let’s Connect!
+          </h2>
           <p class="text-gray-400 mb-4 max-w-xs">
             Open for collaboration, freelance, or just a friendly chat about
             tech and web development.
@@ -213,65 +492,63 @@
             <a
               href="https://linkedin.com/in/salasaakhr"
               target="_blank"
-              class="text-green-400 hover:text-green-300 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/salasaa"
               target="_blank"
-              class="text-green-400 hover:text-green-300 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-github"></i>
             </a>
             <a
               href="https://t.me/salasaakhr"
               target="_blank"
-              class="text-green-400 hover:text-green-300 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-telegram"></i>
-            </a>
-            <a
-              href="mailto:akhirudinsalasa@gmail.com"
-              target="_blank"
-              class="text-green-400 hover:text-green-300 text-2xl"
-            >
-              <i class="fas fa-envelope"></i>
             </a>
           </div>
           <form class="flex gap-2">
             <input
               type="email"
               placeholder="Your email"
-              class="px-3 py-2 rounded border border-gray-700 bg-gray-900 text-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="px-6 py-2 rounded border border-gray-400 text-gray-500 font-semibold hover:bg-gray-400 dark:hover:bg-gray-900 transition"
             />
             <button
+              aria-label="Submit email"
+              aria-describedby="email"
               type="submit"
-              class="px-4 py-2 rounded bg-green-700 text-white font-semibold hover:bg-green-800 transition"
+              class="px-6 py-2 rounded bg-gray-600 text-white font-semibold hover:bg-gray-700 transition"
             >
               Submit
             </button>
           </form>
         </div>
         <!-- Polaroid effect -->
-        <div class="polaroid-wrapper flex justify-center items-center">
-          <div
-            class="bg-white rounded-lg shadow-lg p-2 rotate-3 border border-gray-200"
-          >
-            <img
-              src="/assets/images/image-1.jpg"
-              alt="Footer Polaroid"
-              class="w-40 h-40 object-cover rounded-md shadow"
-            />
-            <div class="text-center text-xs text-gray-700 mt-2 font-semibold">
-              Akhirudin & Family
-            </div>
-          </div>
+
+        <!-- Item 7 -->
+        <div
+          class="relative -top-16 -translate-x-10 rotate-[5deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-2xl bg-gray-200 p-4 rounded shadow-sm text-center gap-4"
+        >
+          <a href="#"
+            ><img
+              class="w-48 rounded"
+              src="https://placehold.co/200x200"
+              alt="Item 7"
+          /></a>
+          <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 7</p>
         </div>
       </div>
       <p class="text-center text-xs text-gray-500 pb-6">
         &copy; 2025 Akhirudin Salasa. All rights reserved.
       </p>
     </footer>
+    <script src="/assets/main.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

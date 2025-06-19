@@ -40,6 +40,11 @@
       href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
       rel="stylesheet"
     />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -65,10 +70,7 @@
       <div
         class="max-w-4xl mx-auto flex items-center justify-between py-4 px-4 gap-4"
       >
-        <a
-          href="/"
-          class="flex items-center gap-2 font-bold text-green-400 text-xl"
-        >
+        <a href="/">
           <img
             alt="salasa.id"
             src="/assets/icons/salasa-logo-light.svg"
@@ -76,7 +78,9 @@
           />
         </a>
         <nav class="flex gap-6 text-sm font-inter font-medium">
-          <a href="/" class="text-gray-200">Home</a>
+          <a href="/" class="text-gray-400 hover:text-gray-200 transition"
+            >Home</a
+          >
           <a
             href="/projects"
             class="text-gray-400 hover:text-gray-200 transition"
@@ -152,6 +156,37 @@
       </div>
     </header>
 
+    <!-- Main Content -->
+    <main
+      class="flex-1 w-full max-w-4xl mx-auto px-4 py-12"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <!-- Profile -->
+      <section class="flex w-full items-center gap-1 mb-12 p-6">
+        <form
+          action="/search"
+          method="GET"
+          class="w-full flex flex-col md:flex-row gap-4"
+        >
+          <label for="search" class="sr-only">Search</label>
+          <input
+            type="text"
+            id="search"
+            name="q"
+            placeholder="Search..."
+            class="w-full p-3 rounded border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <button
+            type="submit"
+            class="mt-2 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+          >
+            Search
+          </button>
+        </form>
+      </section>
+    </main>
+
     <!-- Footer -->
     <footer
       class="w-full border-t border-gray-200 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:border-gray-900 mt-auto border-t border-gray-200"
@@ -173,30 +208,23 @@
             <a
               href="https://linkedin.com/in/salasaakhr"
               target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/salasaa"
               target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-github"></i>
             </a>
             <a
               href="https://t.me/salasaakhr"
               target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-telegram"></i>
-            </a>
-            <a
-              href="mailto:akhirudinsalasa@gmail.com"
-              target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
-            >
-              <i class="fas fa-envelope"></i>
             </a>
           </div>
           <form class="flex gap-2">
@@ -207,7 +235,7 @@
             />
             <button
               aria-label="Submit email"
-              aria-describedby="emailHelp"
+              aria-describedby="email"
               type="submit"
               class="px-6 py-2 rounded bg-gray-600 text-white font-semibold hover:bg-gray-700 transition"
             >
@@ -235,5 +263,8 @@
       </p>
     </footer>
     <script src="/assets/main.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

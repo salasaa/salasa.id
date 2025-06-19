@@ -40,6 +40,11 @@
       href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
       rel="stylesheet"
     />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -65,10 +70,7 @@
       <div
         class="max-w-4xl mx-auto flex items-center justify-between py-4 px-4 gap-4"
       >
-        <a
-          href="/"
-          class="flex items-center gap-2 font-bold text-green-400 text-xl"
-        >
+        <a href="/">
           <img
             alt="salasa.id"
             src="/assets/icons/salasa-logo-light.svg"
@@ -76,7 +78,9 @@
           />
         </a>
         <nav class="flex gap-6 text-sm font-inter font-medium">
-          <a href="/" class="text-gray-200">Home</a>
+          <a href="/" class="text-gray-900 dark:text-gray-100 font-bold"
+            >Home</a
+          >
           <a
             href="/projects"
             class="text-gray-400 hover:text-gray-200 transition"
@@ -152,7 +156,11 @@
       </div>
     </header>
 
-    <main class="flex-1 w-full max-w-4xl mx-auto px-4 py-12">
+    <main
+      class="flex-1 w-full max-w-4xl mx-auto px-4 py-12"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <!-- Profile -->
       <section class="flex flex-col items-center gap-4 mb-12 p-6">
         <img
@@ -161,15 +169,17 @@
           class="w-32 h-32 rounded-full shadow-lg"
         />
         <h1
-          class="text-3xl font-brush font-bold text-gray-900 dark:text-gray-100 tracking-wide"
+          class="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-wide"
         >
           Akhirudin Salasa
         </h1>
-        <p class="text-lg text-gray-500 font-semibold">Software Engineer</p>
+        <p class="text-lg font-brush text-gray-500 font-semibold">
+          Software Engineer
+        </p>
         <div class="flex gap-4 mt-2">
           <a
             href="/projects"
-            class="px-6 py-2 rounded bg-gray-600 text-white font-semibold hover:bg-gray-700 transition"
+            class="px-6 py-2 rounded bg-gray-900 text-white font-semibold hover:bg-gray-700 transition"
             >View my project</a
           >
           <a
@@ -187,11 +197,9 @@
         >
           About Me
         </h2>
-        <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
+        <p class="text-base font-inter dark:text-gray-300 mb-2">
           Hello, my name is
-          <strong class="font-brush text-green-400 tracking-widest"
-            >Akhirudin Salasa</strong
-          >.
+          <strong class="text-green-400">Akhirudin Salasa</strong>.
         </p>
         <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
           I'm a software developer with over two years of experience. I started
@@ -211,19 +219,19 @@
           <a
             href="https://linkedin.com/in/salasaakhr"
             target="_blank"
-            class="text-gray-200 hover:text-gray-400 text-4xl"
+            class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-4xl"
             ><i class="fab fa-linkedin"></i
           ></a>
           <a
             href="https://github.com/salasaa"
             target="_blank"
-            class="text-gray-200 hover:text-gray-400 text-4xl"
+            class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-4xl"
             ><i class="fab fa-github"></i
           ></a>
           <a
             href="https://t.me/salasaakhr"
             target="_blank"
-            class="text-gray-200 hover:text-gray-400 text-4xl"
+            class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-4xl"
             ><i class="fab fa-telegram"></i
           ></a>
         </div>
@@ -445,30 +453,23 @@
             <a
               href="https://linkedin.com/in/salasaakhr"
               target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-linkedin"></i>
             </a>
             <a
               href="https://github.com/salasaa"
               target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-github"></i>
             </a>
             <a
               href="https://t.me/salasaakhr"
               target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
             >
               <i class="fab fa-telegram"></i>
-            </a>
-            <a
-              href="mailto:akhirudinsalasa@gmail.com"
-              target="_blank"
-              class="text-gray-200 hover:text-gray-400 text-2xl"
-            >
-              <i class="fas fa-envelope"></i>
             </a>
           </div>
           <form class="flex gap-2">
@@ -479,7 +480,7 @@
             />
             <button
               aria-label="Submit email"
-              aria-describedby="emailHelp"
+              aria-describedby="email"
               type="submit"
               class="px-6 py-2 rounded bg-gray-600 text-white font-semibold hover:bg-gray-700 transition"
             >
@@ -507,5 +508,8 @@
       </p>
     </footer>
     <script src="/assets/main.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

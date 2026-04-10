@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Impor interface dari file types.ts
-import { TechPillProps } from "@/types";
+import { TechPillProps } from "../types";
 
 /**
  * Komponen TechPill - Sekarang lebih ringkas dan fokus pada UI

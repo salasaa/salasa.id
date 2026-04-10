@@ -89,7 +89,7 @@ const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
+        "rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/20 bg-white border border-transparent justify-between flex flex-col space-y-4",
         className,
       )}
     >
@@ -135,7 +135,7 @@ const ICONS_APP = {
 const Skeleton = ({ className }: { className?: string }) => (
   <div
     className={cn(
-      "flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100",
+      "flex flex-1 w-full h-full min-h-24 rounded-xl bg-linear-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100",
       className,
     )}
   />

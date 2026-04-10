@@ -42,11 +42,11 @@ export default function ProjectHighlight() {
           className="relative group"
         >
           {/* Efek Cahaya di Belakang (Glow) */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition duration-1000" />
+          <div className="absolute -inset-4 bg-linear-to-r from-green-500/20 to-blue-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition duration-1000" />
 
           <div className="relative rounded-2xl border border-neutral-200 dark:border-white/10 overflow-hidden bg-zinc-100 dark:bg-zinc-900 shadow-2xl">
             {/* Placeholder untuk Screenshot Aplikasi kamu */}
-            <div className="aspect-video w-full flex items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
+            <div className="aspect-video w-full flex items-center justify-center bg-linear-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900">
               <span className="text-neutral-400 font-medium italic">
                 [ Screenshot Arcbook Preview ]
               </span>

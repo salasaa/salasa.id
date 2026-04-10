@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-              Let's build something <br />
+              Lets build something <br />
               <span className="text-zinc-400">extraordinary together.</span>
             </h2>
 

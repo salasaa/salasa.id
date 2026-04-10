@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const TechPill = ({ svgPath, name, color }) => {
+// Impor interface dari file types.ts
+import { TechPillProps } from "@/types";
+
+/**
+ * Komponen TechPill - Sekarang lebih ringkas dan fokus pada UI
+ */
+const TechPill: React.FC<TechPillProps> = ({ svgPath, name, color }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -15,9 +21,9 @@ const TechPill = ({ svgPath, name, color }) => {
         damping: 30,
         mass: 0.8,
       }}
-      className="relative flex items-center bg-[#18181b] border border-white/10 rounded-full cursor-pointer overflow-hidden p-[6px] h-10 group hover:border-white/30"
+      className="relative flex items-center bg-[#18181b] border border-white/10 rounded-full cursor-pointer overflow-hidden p-6 h-10 group hover:border-white/30"
     >
-      <div className="flex items-center justify-center flex-shrink-0 w-7 h-7">
+      <div className="flex items-center justify-center shrink-0 w-7 h-7">
         <svg
           role="img"
           viewBox="0 0 24 24"

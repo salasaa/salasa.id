@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white dark:bg-gray-950">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Hi, I’m Akhirudin Salasa – Web Developer Who Loves Building Things
+    </title>
+    <meta
+      name="description"
+      content="Welcome! I'm Akhirudin Salasa, a web developer who’s passionate about clean design, thoughtful code, and building digital experiences that matter."
+    />
+    <meta name="author" content="Akhirudin Salasa" />
+    <meta name="theme-color" content="#16a34a" />
+    <link
+      rel="icon"
+      href="/assets/icons/salasa-logo-favicon.svg"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              caveat: ["Caveat", "cursive"],
+              brush: ["Caveat Brush", "cursive"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="font-inter bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col"
+  >
+    <!-- Header -->
+    <header
+      class="site-header w-full bg-white/30 dark:bg-gray-950/50 backdrop-blur-2xl sticky top-0 z-30 transition-all duration-300"
+    >
+      <div
+        class="max-w-4xl mx-auto flex items-center justify-between py-4 px-4 gap-4"
+      >
+        <a href="/">
+          <img
+            alt="salasa.id"
+            src="/assets/icons/salasa-logo-light.svg"
+            class="w-20 h-20"
+          />
+        </a>
+        <nav class="flex gap-6 text-sm font-inter font-medium">
+          <a href="/" class="text-gray-900 dark:text-gray-100 font-bold"
+            >Home</a
+          >
+          <a
+            href="/projects"
+            class="text-gray-400 hover:text-gray-200 transition"
+            >Projects</a
+          >
+          <a href="/works" class="text-gray-400 hover:text-gray-200 transition"
+            >Works</a
+          >
+          <a
+            href="/contact"
+            class="text-gray-400 hover:text-gray-200 transition"
+            >Contact</a
+          >
+        </nav>
+        <!-- Search & Dark Mode Toggle -->
+        <div class="flex items-center gap-1">
+          <!-- Search Toggle Button -->
+          <a
+            href="/search"
+            aria-label="Go to search page"
+            class="p-2 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </a>
+          <!-- Dark/Light Toggle Button -->
+          <button
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            class="p-2 rounded-full bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-green-500 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            <svg
+              id="icon-sun"
+              class="h-5 w-5 block dark:hidden"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="5" stroke="currentColor" />
+              <path
+                stroke-linecap="round"
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              />
+            </svg>
+            <svg
+              id="icon-moon"
+              class="h-5 w-5 hidden dark:block"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="flex-1 w-full max-w-4xl mx-auto px-4 py-12"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <!-- Profile -->
+      <section class="flex flex-col items-center gap-4 mb-12 p-6">
+        <img
+          src="/assets/images/profil-picture.png"
+          alt="Profile"
+          class="w-32 h-32 rounded-full shadow-lg"
+        />
+        <h1
+          class="text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-wide"
+        >
+          Akhirudin Salasa
+        </h1>
+        <p class="text-lg font-brush text-gray-500 font-semibold">
+          Software Engineer
+        </p>
+        <div class="flex gap-4 mt-2">
+          <a
+            href="/projects"
+            class="px-6 py-2 rounded bg-gray-900 text-white font-semibold hover:bg-gray-700 transition"
+            >View my project</a
+          >
+          <a
+            href="/works"
+            class="px-6 py-2 rounded border border-gray-600 text-gray-400 font-semibold hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+            >View my work</a
+          >
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="mb-12 p-6">
+        <h2
+          class="text-sm font-medium uppercase tracking-widest text-green-400 mb-2"
+        >
+          About Me
+        </h2>
+        <p class="text-base font-inter dark:text-gray-300 mb-2">
+          Hello, my name is
+          <strong class="text-green-400">Akhirudin Salasa</strong>.
+        </p>
+        <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
+          I'm a software developer with over two years of experience. I started
+          out in Chemical Engineering, but eventually found my true passion in
+          tech. Today, I focus on web development always learning, always
+          building, and driven to create digital solutions that make a real
+          impact.
+        </p>
+        <p class="text-base text-gray-700 dark:text-gray-300 mb-2">
+          I live in Semarang with my amazing wife, Puspita, and our energetic
+          two-year-old son. They're my greatest source of joy and inspiration.
+        </p>
+        <p class="text-base text-gray-700 dark:text-gray-300 mt-2">
+          Let’s connect and create something meaningful together!
+        </p>
+        <div class="flex gap-8 justify-center mt-10">
+          <a
+            href="https://linkedin.com/in/salasaakhr"
+            target="_blank"
+            class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-4xl"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/salasaa"
+            target="_blank"
+            class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-4xl"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://t.me/salasaakhr"
+            target="_blank"
+            class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-4xl"
+            ><i class="fab fa-telegram"></i
+          ></a>
+        </div>
+      </section>
+
+      <!-- Polaroid Gallery -->
+      <section class="py-10">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap justify-center gap-4">
+            <!-- Item 1 -->
+            <div
+              class="transform rotate-[-3deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-2xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-56 rounded"
+                  src="https://placehold.co/200x200"
+                  alt="Item 1"
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 1</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div
+              class="transform rotate-[5deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-2xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-56 rounded"
+                  src="https://placehold.co/200x200"
+                  alt="Item 2"
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 2</p>
+            </div>
+            <!-- Item 3 -->
+            <div
+              class="transform rotate-[-8deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-56 rounded"
+                  src="assets/images/image-1.jpg"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 3</p>
+            </div>
+            <!-- Item 4 -->
+            <div
+              class="transform rotate-[3deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-56 rounded"
+                  src="https://placehold.co/200x200"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 4</p>
+            </div>
+            <!-- Item 5 -->
+            <div
+              class="transform rotate-[-5deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-56 rounded"
+                  src="https://placehold.co/200x200"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 5</p>
+            </div>
+            <!-- Item 6 -->
+            <div
+              class="transform rotate-[7deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-xl bg-gray-200 p-4 rounded shadow-md text-center"
+            >
+              <a href="#"
+                ><img
+                  class="w-56 rounded"
+                  src="/assets/images/image-1.jpg"
+                  alt=""
+              /></a>
+              <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 6</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stacks -->
+      <section class="mb-12 p-6 pb-20">
+        <h2
+          class="text-sm font-medium uppercase tracking-widest text-green-400 mb-2"
+        >
+          My Tech Stacks
+        </h2>
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-400">1. Development</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >HTML</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >CSS</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Bootstrap</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >WordPress</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Elementor</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >GitHub</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >VS Code</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Cloudflare</span
+            >
+          </div>
+        </div>
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-400">2. Design</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Figma</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Canva</span
+            >
+          </div>
+        </div>
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-400">3. Productivity</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Google Docs</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Google Sheets</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Google Slides</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Google Drive</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Google Workspaces</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Trello</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Notion</span
+            >
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-400">4. Communication</h4>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >WhatsApp</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Telegram</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Discord</span
+            >
+            <span
+              class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 text-sm"
+              >Email</span
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="w-full border-t border-gray-200 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:border-gray-900 mt-auto border-t border-gray-200"
+    >
+      <div
+        class="max-w-4xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-8"
+      >
+        <div>
+          <h2
+            class="text-lg font-medium uppercase tracking-widest text-green-400 mb-2"
+          >
+            Let’s Connect!
+          </h2>
+          <p class="text-gray-400 mb-4 max-w-xs">
+            Open for collaboration, freelance, or just a friendly chat about
+            tech and web development.
+          </p>
+          <div class="flex gap-4 mb-4">
+            <a
+              href="https://linkedin.com/in/salasaakhr"
+              target="_blank"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/salasaa"
+              target="_blank"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://t.me/salasaakhr"
+              target="_blank"
+              class="text-gray-900 hover:text-gray-400 dark:text-gray-100 text-2xl"
+            >
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
+          <form class="flex gap-2">
+            <input
+              type="email"
+              placeholder="Your email"
+              class="px-6 py-2 rounded border border-gray-400 text-gray-500 font-semibold hover:bg-gray-400 dark:hover:bg-gray-900 transition"
+            />
+            <button
+              aria-label="Submit email"
+              aria-describedby="email"
+              type="submit"
+              class="px-6 py-2 rounded bg-gray-600 text-white font-semibold hover:bg-gray-700 transition"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <!-- Polaroid effect -->
+
+        <!-- Item 7 -->
+        <div
+          class="relative -top-16 -translate-x-10 rotate-[5deg] transition duration-200 hover:rotate-0 hover:scale-110 hover:z-10 hover:shadow-2xl bg-gray-200 p-4 rounded shadow-sm text-center gap-4"
+        >
+          <a href="#"
+            ><img
+              class="w-48 rounded"
+              src="https://placehold.co/200x200"
+              alt="Item 7"
+          /></a>
+          <p class="mt-2 font-caveat text-gray-800 text-lg">Caption 7</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-500 pb-6">
+        &copy; 2025 Akhirudin Salasa. All rights reserved.
+      </p>
+    </footer>
+    <script src="/assets/main.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

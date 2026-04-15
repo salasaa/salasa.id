@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
 import { FlipWords } from "../ui/flip-words";
+import { LinkPreview } from "../ui/link-preview";
 
 export const HeroContent = () => {
   const words = ["learning", "building", "and driven"];
 
   return (
-    <div className="relative z-30 flex min-h-screen w-full flex-col items-center justify-center px-4 py-20">
+    <div className="relative z-50 flex min-h-screen w-full flex-col items-center justify-center px-4 py-20">
       <div className="w-full max-w-3xl flex flex-col items-start">
         <motion.h1 className="text-left text-xl font-bold text-neutral-800 md:text-xl lg:text-2xl dark:text-neutral-100 tracking-tight">
           Hello, my name is{" "}
@@ -23,6 +24,32 @@ export const HeroContent = () => {
 
         <motion.div className="mt-4 text-left text-md md:text-lg  text-neutral-600 dark:text-neutral-400">
           Let&apos;s connect and create something meaningful together!
+        </motion.div>
+
+        <motion.div className="mt-4 text-left text-md md:text-lg  text-neutral-600 dark:text-neutral-400">
+          You can find my works on{" "}
+          <LinkPreview
+            url="https://github.com/salasaa"
+            className="font-bold text-zinc-800 dark:text-zinc-200 pointer-events-auto"
+          >
+            GitHub
+          </LinkPreview>
+          , check my professional journey on{" "}
+          <LinkPreview
+            url="https://linkedin.com/in/akhirudin-salasa"
+            className="font-bold text-blue-600 pointer-events-auto"
+          >
+            LinkedIn
+          </LinkPreview>
+          , or if you want to discuss a project faster, feel free to reach me
+          via{" "}
+          <LinkPreview
+            url="https://t.me/salasaakhr"
+            className="font-bold text-sky-500 pointer-events-auto"
+          >
+            Telegram
+          </LinkPreview>
+          .
         </motion.div>
       </div>
     </div>

@@ -231,14 +231,17 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <a
-      href="/"
+      href="Link /"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
       <img
-        src="/salasa-logo-light.png"
+        src="/salasaid-new-logo.png"
         alt="Salasa Logo"
         className="h-8 w-auto dark:invert"
       />
+      <span className="hidden text-lg font-bold sm:inline-block dark:invert">
+        salasa
+      </span>
     </a>
   );
 };

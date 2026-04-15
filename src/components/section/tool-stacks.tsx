@@ -137,10 +137,11 @@ export default function ToolStack() {
       {/* --- Box Title --- */}
       <div className="relative z-40 w-full max-w-3xl px-4 -mt-16">
         <div className="bg-[#121214]/30 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 md:p-14 text-center shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tighter leading-[1.05]">
-            Works with all the tools <br />
-            <span className="text-zinc-200 dark:text-zinc-500 font-medium italic ">
-              your team already uses
+          <h2 className="flex flex-col items-center gap-2 text-3xl md:text-4xl font-bold text-white tracking-tighter leading-tight text-center">
+            <span>Integrated with the modern stack</span>
+
+            <span className="text-xl md:text-3xl text-zinc-400 font-medium italic">
+              I&apos;m ready to sync with your team&apos;s workflow
             </span>
           </h2>
         </div>

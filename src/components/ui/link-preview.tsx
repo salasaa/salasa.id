@@ -5,10 +5,10 @@ import { encode } from "qss";
 import React from "react";
 import {
   AnimatePresence,
+  useSpring,
   motion,
   useMotionValue,
-  useSpring,
-} from "motion/react";
+} from "framer-motion";
 
 import { cn } from "@/lib/utils";
 

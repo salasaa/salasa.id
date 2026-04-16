@@ -56,6 +56,7 @@ export function Header() {
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
+
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -79,17 +80,18 @@ export function Header() {
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                variant="dark"
+                className="pointer-events-auto"
               >
-                Login
+                <ThemeToggle />
               </NavbarButton>
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                variant="dark"
+                href="https://drive.google.com/file/d/1rQNXdb1EHgGa5v8TXsVlrNNUEcDF0msO/view"
+                target="_blank"
+                className="pointer-events-auto"
               >
-                Book a call
+                Resume
               </NavbarButton>
             </div>
           </MobileNavMenu>

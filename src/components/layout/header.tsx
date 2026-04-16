@@ -40,7 +40,15 @@ export function Header() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <NavbarButton variant="dark">Resume</NavbarButton>
+
+            <NavbarButton
+              variant="dark"
+              href="https://drive.google.com/file/d/1rQNXdb1EHgGa5v8TXsVlrNNUEcDF0msO/view"
+              target="_blank"
+              className="pointer-events-auto"
+            >
+              Resume
+            </NavbarButton>
           </div>
         </NavBody>
 

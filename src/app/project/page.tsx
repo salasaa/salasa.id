@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ProjectPage from "@/components/section/projects";
-import Features from "@/components/section/features";
 
 export const metadata: Metadata = {
   title: "My Project Portfolio - Showing My Journey and Impact",
@@ -22,12 +21,6 @@ export default function Project() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <ProjectPage />
-
-      <section className="relative h-screen w-full">
-        <div className="relative z-20 pointer-events-none">
-          <Features />
-        </div>
-      </section>
     </main>
   );
 }

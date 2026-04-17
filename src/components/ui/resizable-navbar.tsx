@@ -249,20 +249,6 @@ export const NavbarLogo = () => {
     </Link>
   );
 };
-//     <a className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black">
-//       <Image
-//         src="/salasaid-new-logo.png"
-//         width={32}
-//         height={32}
-//         alt="Logo"
-//         className="h-6 w-auto sm:h-8 dark:invert"
-//       />
-//       <span className="text-base sm:text-lg font-bold tracking-tighter dark:invert">
-//         salasa
-//       </span>
-//     </a>
-//   );
-// };
 
 export const NavbarButton = ({
   href,

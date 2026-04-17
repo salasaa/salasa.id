@@ -200,11 +200,7 @@ ${fields
           <div className="flex items-center gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
             Generator Preview
           </div>
-          <div className="flex items-center gap-3">
-            <button className="p-2 text-slate-400 hover:text-slate-900">
-              <Sun size={18} />
-            </button>
-          </div>
+          <div className="flex items-center gap-3">{/* CLI */}</div>
         </header>
 
         <div className="flex-1 overflow-y-auto p-12 flex justify-center items-start">

@@ -2,7 +2,13 @@ import React from "react";
 
 const projects = [
   {
-    title: "Shadcn Form Builder",
+    title: "hookcn",
+    description: "Collection of re-usable react hooks inspired by shadcn/ui.",
+    tags: ["Nextjs", "Tailwindcss", "Shadcn/ui", "React"],
+    href: "https://hookcn.ouassim.tech",
+  },
+  {
+    title: "shadcn form builder",
     description: "WYSIWYG shadcn form builder.",
     tags: [
       "Nextjs",
@@ -13,88 +19,20 @@ const projects = [
       "Zod",
       "React Hook Form",
     ],
-    href: "https://salasa.id/form-builder",
+    href: "https://forms.ouassim.tech",
   },
   {
-    title: "Acaraga",
-    description:
-      "Acaraga is a platform designed to help users easily discover various sport events.",
-    tags: [
-      "Typescript",
-      "Hono",
-      "React",
-      "React-Router",
-      "Shadcn/ui",
-      "Mapbox",
-      "Docker",
-      "Prisma",
-      "PostgreSQL",
-      "Netlify",
-      "Cloudflare",
-    ],
-    href: "https://acaraga.com",
-  },
-  {
-    title: "Arcbook",
-    description: "is a ecommerce website for buying books online.",
-    tags: [
-      "Typescript",
-      "Bun",
-      "Docker",
-      "Prisma",
-      "PostgreSQL",
-      "Shadcn/ui",
-      "React",
-      "Netlify",
-      "Cloudflare",
-    ],
-    href: "https://arcbooks.salasa.id",
-  },
-  {
-    title: "Cartify",
-    description:
-      "is a Grocery List App that helps users manage their shopping lists efficiently.",
-    tags: [
-      "Typescript",
-      "React",
-      "Bun",
-      "Shadcn/ui",
-      "Prisma",
-      "Docker",
-      "TablePlus",
-      "Railway",
-      "Cloudflare",
-    ],
-    href: "https://cartify.salasa.id",
-  },
-  {
-    title: "Linkup",
-    description:
-      "is a simple contact books that allow users to manage their contacts easily.",
-    tags: ["Typescript", "Bun", "Shadcn/ui", "React", "Vercel"],
-    href: "https://linkup.salasa.id",
-  },
-  {
-    title: "Salasa.id",
-    description:
-      "is my personal portfolio website that showcases my projects, skills, and experiences.",
-    tags: [
-      "Bun",
-      "Next.js",
-      "TypeScript",
-      "Aceternity UI",
-      "Framer Motion",
-      "Shadcn/ui",
-      "Cloudflare Pages/Workers",
-    ],
-    href: "https://salasa.id",
+    title: "ouassim.tech",
+    description: "This awesome website that you're on.",
+    tags: ["Astro", "Tailwindcss", "Shadcn/ui", "React", "Netlify", "Markdown"],
+    href: "https://ouassim.tech",
   },
 ];
 
-export default function ProjectPage() {
+export default function Projects() {
   return (
     <main className="min-h-screen bg-[#f8f8f8] dark:bg-zinc-950 pt-24 pb-20">
-      <section className="border-grid text-natural-100 max-w-4xl mx-auto px-4">
+      <section className="border-grid text-natural-100 max-w-3xl mx-auto">
         <div className="container-wrapper relative">
           <div className="container space-y-4">
             <h2 className="font-mono text-xl leading-tight font-bold tracking-tighter sm:text-2xl md:text-3xl lg:leading-[1.1]">
@@ -169,7 +107,7 @@ export default function ProjectPage() {
             {/* See All Button */}
             <a
               href="/projects"
-              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-muted/60 shadow-xs hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 group mt-4"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 group mt-4"
             >
               See all
               <svg

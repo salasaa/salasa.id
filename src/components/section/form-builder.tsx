@@ -5,16 +5,15 @@ import {
   Type,
   AlignLeft,
   Hash,
-  Mail,
   Trash2,
   Edit2,
-  Sun,
   Copy,
   Check,
   X,
   Settings2,
   CheckCircle2,
   Trash,
+  AtSign,
 } from "lucide-react";
 
 /**
@@ -39,19 +38,22 @@ export default function FormBuilder() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const componentList = [
-    { icon: <Type size={14} />, label: "Input" },
+    {
+      icon: <Type size={14} />,
+      label: "Input",
+    },
     { icon: <AlignLeft size={14} />, label: "Textarea" },
     { icon: <Hash size={14} />, label: "Number Input" },
-    { icon: <Mail size={14} />, label: "Email" },
+    { icon: <AtSign size={14} />, label: "Email" },
   ];
 
-  const addField = (type) => {
+  const addField = (type: string) => {
     const id = Math.random().toString(36).substr(2, 9);
     const newField = {
       id,
       type,
       label: `Label ${type}`,
-      placeholder: `Masukkan ${type.toLowerCase()}...`,
+      placeholder: ` ${type.toLowerCase()}...`,
       description: "",
       required: false,
     };
@@ -59,7 +61,7 @@ export default function FormBuilder() {
     setEditingFieldId(id);
   };
 
-  const removeField = (id) => {
+  const removeField = (id: string | null) => {
     setFields(fields.filter((f) => f.id !== id));
     if (editingFieldId === id) setEditingFieldId(null);
     const newValues = { ...formValues };
@@ -67,15 +69,23 @@ export default function FormBuilder() {
     setFormValues(newValues);
   };
 
-  const updateField = (id, updates) => {
+  const updateField = (
+    id: string | null,
+    updates: {
+      label?: string;
+      placeholder?: string;
+      description?: string;
+      required?: boolean;
+    },
+  ) => {
     setFields(fields.map((f) => (f.id === id ? { ...f, ...updates } : f)));
   };
 
-  const handleInputChange = (id, value) => {
+  const handleInputChange = (id: string, value: string) => {
     setFormValues((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 3000);
@@ -103,7 +113,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
-${fields.map((f) => `  ${f.label.toLowerCase().replace(/\s/g, "_")}: z.string()${f.required ? '.min(1, { message: "Wajib diisi" })' : ""},`).join("\n")}
+${fields.map((f) => `  ${f.label.toLowerCase().replace(/\s/g, "_")}: z.string()${f.required ? '.min(1, { message: "Required Field" })' : ""},`).join("\n")}
 })
 
 export function CustomForm() {
@@ -170,14 +180,16 @@ ${fields
           <div className="bg-slate-900 p-1.5 rounded-md text-white shadow-sm">
             <Settings2 size={16} />
           </div>
-          <h1 className="font-semibold text-sm tracking-tight">Form Builder</h1>
+          <h1 className="font-semibold text-sm tracking-tight text-slate-600 dark:text-slate-400">
+            Shadcn Form Builder
+          </h1>
         </div>
 
         <div className="p-4 overflow-y-auto">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-            Elemen
+            Fields
           </p>
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 font-bold font-sans">
             {componentList.map((item, index) => (
               <button
                 key={index}
@@ -198,17 +210,17 @@ ${fields
       <main className="flex-1 flex flex-col overflow-hidden relative bg-slate-50/20 mt-11">
         <header className="h-14 border-b border-slate-200 flex items-center justify-between px-6 bg-white shrink-0">
           <div className="flex items-center gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-            Generator Preview
+            Preview
           </div>
           <div className="flex items-center gap-3">{/* CLI */}</div>
         </header>
 
         <div className="flex-1 overflow-y-auto p-12 flex justify-center items-start">
-          <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-xl shadow-sm flex flex-col relative min-h-[500px]">
+          <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-xl shadow-sm flex flex-col relative min-h-125">
             {showSuccess && (
               <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2.5 text-sm animate-in fade-in slide-in-from-top-4 duration-300">
                 <CheckCircle2 size={16} className="text-green-400" />
-                Data Berhasil Dikirim!
+                Data sent successfully
               </div>
             )}
 
@@ -250,7 +262,7 @@ ${fields
                 <form onSubmit={handleFormSubmit} className="p-10 space-y-8">
                   {fields.length === 0 ? (
                     <div className="py-24 flex flex-col items-center justify-center text-slate-300 border-2 border-dashed border-slate-100 rounded-2xl">
-                      <p className="text-sm">Kanvas Kosong</p>
+                      <p className="text-sm">Empty</p>
                     </div>
                   ) : (
                     fields.map((field) => (
@@ -288,7 +300,7 @@ ${fields
                                 handleInputChange(field.id, e.target.value)
                               }
                               placeholder={field.placeholder}
-                              className="w-full min-h-[100px] rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-950 transition-shadow"
+                              className="w-full min-h-25 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-950 transition-shadow"
                             />
                           ) : (
                             <input
@@ -321,29 +333,25 @@ ${fields
                       type="submit"
                       className="w-full bg-slate-900 text-white rounded-md h-11 text-sm font-bold hover:bg-slate-800 transition-colors mt-4"
                     >
-                      Kirim
+                      Submit
                     </button>
                   )}
                 </form>
               ) : (
                 <div
-                  className="bg-[#09090b] text-slate-300 p-0 font-mono text-xs h-125
+                  className="bg-gray-950 dark:bg-gray-900 text-slate-300 p-0 font-mono text-xs h-125
                  overflow-hidden flex flex-col"
                 >
                   <div className="flex justify-between items-center px-6 py-3 border-b border-white/10 bg-white/5 shrink-0">
-                    <span className="text-[10px] text-slate-500 font-bold uppercase">
-                      generated_form.tsx
-                    </span>
                     <button
                       onClick={copyToClipboard}
-                      className="text-[10px] flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-md transition-all font-bold"
+                      className="text-[10px] items-center gap-2 hover:bg-white/20 text-white px-3 py-1.5 rounded-md transition-all font-bold "
                     >
                       {isCopied ? (
                         <Check size={12} className="text-green-400" />
                       ) : (
                         <Copy size={12} />
-                      )}{" "}
-                      {isCopied ? "Tersalin" : "Salin"}
+                      )}
                     </button>
                   </div>
                   <div className="flex-1 overflow-auto p-6 leading-relaxed">
@@ -366,7 +374,7 @@ ${fields
           <div className="flex items-center gap-2">
             <Settings2 size={14} className="text-slate-900" />
             <h2 className="text-xs font-bold uppercase tracking-widest">
-              Pengaturan
+              Settings
             </h2>
           </div>
           <button
@@ -407,7 +415,7 @@ ${fields
             </div>
             <div className="space-y-2">
               <label className="text-[11px] font-bold uppercase text-slate-400">
-                Bantuan
+                Help
               </label>
               <textarea
                 value={currentEditingField.description}
@@ -421,7 +429,7 @@ ${fields
             <div className="pt-4 border-t border-slate-100">
               <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-100">
                 <label className="text-sm font-medium text-slate-700">
-                  Wajib diisi
+                  Required
                 </label>
                 <input
                   type="checkbox"
@@ -437,7 +445,7 @@ ${fields
               onClick={() => setEditingFieldId(null)}
               className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 text-sm font-bold rounded-md"
             >
-              Simpan
+              Save
             </button>
           </div>
         )}

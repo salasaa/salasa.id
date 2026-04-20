@@ -20,12 +20,12 @@ export function Header() {
       link: "/",
     },
     {
-      name: "Work",
-      link: "/work",
+      name: "Works",
+      link: "/works",
     },
     {
-      name: "Project",
-      link: "/project",
+      name: "Projects",
+      link: "/projects",
     },
   ];
 

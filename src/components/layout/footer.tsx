@@ -2,6 +2,30 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+
+const socialLinks = [
+  {
+    Image: "/telegram.svg",
+    href: "https://t.me/salasaakhr",
+    display: "https://t.me/salasaakhr",
+  },
+  {
+    Image: "/github.svg",
+    href: "https://github.com/salasaa",
+    display: "https://github.com/salasaa",
+  },
+  {
+    Image: "/gmail.svg",
+    href: "mailto:akhirudinsalasa.gc@gmail.com",
+    display: "akhirudinsalasa.gc@gmail.com",
+  },
+  {
+    Image: "/linkedin.svg",
+    href: "https://www.linkedin.com/in/akhirudin-salasa",
+    display: "https://www.linkedin.com/in/akhirudin-salasa",
+  },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,7 +52,7 @@ export default function Footer() {
             </h2>
 
             <motion.a
-              href="mailto:halo@salasa.id"
+              href="mailto:akhirudinsalasa.gc@gmail.com"
               whileHover={{ x: 5 }}
               className="inline-flex items-center gap-2 text-lg font-medium text-zinc-900 dark:text-white border-b-2 border-zinc-900 dark:border-white pb-1"
             >
@@ -49,42 +73,48 @@ export default function Footer() {
             </motion.a>
           </div>
 
-          {/* Sisi Kanan: Links */}
-          <div className="grid grid-cols-2 gap-8 md:justify-items-end">
-            <div className="space-y-4">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
-                Socials
-              </h4>
-              <ul className="space-y-2">
-                {["GitHub", "Twitter", "LinkedIn", "Instagram"].map((item) => (
-                  <li key={item}>
-                    <Link
-                      href="#"
-                      className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
-                Navigation
-              </h4>
-              <ul className="space-y-2">
-                {["Home", "Projects", "Articles", "About"].map((item) => (
-                  <li key={item}>
-                    <Link
-                      href="#"
-                      className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Link Contact */}
+
+          <div className="mt-4 grid gap-y-4">
+            {socialLinks.map((link, index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-4 sm:flex-row sm:items-center"
+              >
+                <Image
+                  src={link.Image}
+                  width={20}
+                  height={20}
+                  alt={""}
+                  className="dark:invert"
+                />
+
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group hover:text-muted-foreground inline-flex max-w-max items-start underline"
+                >
+                  {link.display}
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="fill-none stroke-current stroke-[2px] transition-opacity duration-300 ease-in-out ml-1 size-3.5 -rotate-45"
+                  >
+                    <line
+                      x1="5"
+                      y1="12"
+                      x2="19"
+                      y2="12"
+                      className="translate-x-2.5 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
+                    />
+                    <polyline
+                      points="12 5 19 12 12 19"
+                      className="-translate-x-2 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
+                    />
+                  </svg>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
 

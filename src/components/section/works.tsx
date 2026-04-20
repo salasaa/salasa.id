@@ -152,7 +152,7 @@ export default function WorkPage() {
                         {role.tech.map((t) => (
                           <span
                             key={t}
-                            className="px-3 py-1 text-[10px] border border-neutral-200 dark:border-white/10 rounded-full dark:text-neutral-300 bg-zinc-50 dark:bg-zinc-900"
+                            className="bg-muted/60 text-foreground border px-2 py-1.5 text-xs"
                           >
                             {t}
                           </span>

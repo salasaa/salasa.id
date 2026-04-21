@@ -16,12 +16,22 @@ import {
   AtSign,
 } from "lucide-react";
 
-/**
- * Shadcn Form Builder (Lite Version)
- * Implementasi mandiri dengan Tailwind CSS & Lucide Icons
- */
+// --- DEFINISI TYPE ---
+interface FormField {
+  id: string;
+  type: string;
+  label: string;
+  placeholder: string;
+  description: string;
+  required: boolean;
+}
+
+interface FormValues {
+  [key: string]: string;
+}
+
 export default function FormBuilder() {
-  const [fields, setFields] = useState([
+  const [fields, setFields] = useState<FormField[]>([
     {
       id: "1",
       type: "Input",
@@ -31,29 +41,28 @@ export default function FormBuilder() {
       required: true,
     },
   ]);
+
   const [activeTab, setActiveTab] = useState("preview");
+  const [editingFieldId, setEditingFieldId] = useState<string | null>(null);
   const [isCopied, setIsCopied] = useState(false);
-  const [editingFieldId, setEditingFieldId] = useState(null);
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState<FormValues>({});
   const [showSuccess, setShowSuccess] = useState(false);
 
   const componentList = [
-    {
-      icon: <Type size={14} />,
-      label: "Input",
-    },
+    { icon: <Type size={14} />, label: "Input" },
     { icon: <AlignLeft size={14} />, label: "Textarea" },
     { icon: <Hash size={14} />, label: "Number Input" },
     { icon: <AtSign size={14} />, label: "Email" },
   ];
 
+  // FIXED: Logic dipindahkan ke dalam fungsi untuk menghindari error impure render
   const addField = (type: string) => {
-    const id = Math.random().toString(36).substr(2, 9);
-    const newField = {
+    const id = Math.random().toString(36).substring(2, 9);
+    const newField: FormField = {
       id,
       type,
       label: `Label ${type}`,
-      placeholder: ` ${type.toLowerCase()}...`,
+      placeholder: `${type.toLowerCase()}...`,
       description: "",
       required: false,
     };
@@ -61,9 +70,9 @@ export default function FormBuilder() {
     setEditingFieldId(id);
   };
 
-  const removeField = (id: string | null) => {
-    setFields(fields.filter((f) => f.id !== id));
+  const removeField = (id: string) => {
     if (editingFieldId === id) setEditingFieldId(null);
+    setFields(fields.filter((f) => f.id !== id));
     const newValues = { ...formValues };
     delete newValues[id];
     setFormValues(newValues);
@@ -71,13 +80,9 @@ export default function FormBuilder() {
 
   const updateField = (
     id: string | null,
-    updates: {
-      label?: string;
-      placeholder?: string;
-      description?: string;
-      required?: boolean;
-    },
+    updates: Partial<Omit<FormField, "id" | "type">>,
   ) => {
+    if (!id) return;
     setFields(fields.map((f) => (f.id === id ? { ...f, ...updates } : f)));
   };
 
@@ -85,7 +90,7 @@ export default function FormBuilder() {
     setFormValues((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleFormSubmit = (e: { preventDefault: () => void }) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 3000);
@@ -93,12 +98,53 @@ export default function FormBuilder() {
 
   const currentEditingField = fields.find((f) => f.id === editingFieldId);
 
+  // FIXED: Generate real Shadcn/UI code based on current fields
   const generateCode = () => {
+    const zodSchemaFields = fields
+      .map((f) => {
+        const name = f.label.toLowerCase().replace(/\s+/g, "_");
+        return `  ${name}: z.string()${f.required ? '.min(1, { message: "Field ini wajib diisi" })' : ""},`;
+      })
+      .join("\n");
+
+    const defaultValues = fields
+      .map((f) => {
+        const name = f.label.toLowerCase().replace(/\s+/g, "_");
+        return `      ${name}: "",`;
+      })
+      .join("\n");
+
+    const formFieldsJSX = fields
+      .map((f) => {
+        const name = f.label.toLowerCase().replace(/\s+/g, "_");
+        const inputComp =
+          f.type === "Textarea"
+            ? `<Textarea placeholder="${f.placeholder}" {...field} />`
+            : `<Input type="${f.type === "Number Input" ? "number" : f.type === "Email" ? "email" : "text"}" placeholder="${f.placeholder}" {...field} />`;
+
+        return `        <FormField
+          control={form.control}
+          name="${name}"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>${f.label}</FormLabel>
+              <FormControl>
+                ${inputComp}
+              </FormControl>
+              ${f.description ? `<FormDescription>${f.description}</FormDescription>` : ""}
+              <FormMessage />
+            </FormItem>
+          )}
+        />`;
+      })
+      .join("\n");
+
     return `"use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
+
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -113,47 +159,26 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
-${fields.map((f) => `  ${f.label.toLowerCase().replace(/\s/g, "_")}: z.string()${f.required ? '.min(1, { message: "Required Field" })' : ""},`).join("\n")}
+${zodSchemaFields}
 })
 
-export function CustomForm() {
-  const form = useForm({
+export function ProfileForm() {
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-${fields.map((f) => `      ${f.label.toLowerCase().replace(/\s/g, "_")}: "",`).join("\n")}
+${defaultValues}
     },
   })
 
-  function onSubmit(values) {
+  function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-${fields
-  .map(
-    (f) => `        <FormField
-          control={form.control}
-          name="${f.label.toLowerCase().replace(/\s/g, "_")}"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>${f.label}</FormLabel>
-              <FormControl>
-                ${
-                  f.type === "Textarea"
-                    ? `<Textarea placeholder="${f.placeholder}" {...field} />`
-                    : `<Input type="${f.type === "Number Input" ? "number" : f.type === "Email" ? "email" : "text"}" placeholder="${f.placeholder}" {...field} />`
-                }
-              </FormControl>
-              ${f.description ? `<FormDescription>${f.description}</FormDescription>` : ""}
-              <FormMessage />
-            </FormItem>
-          )}
-        />`,
-  )
-  .join("\n")}
-        <Button type="submit" className="w-full">Submit</Button>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+${formFieldsJSX}
+        <Button type="submit">Submit</Button>
       </form>
     </Form>
   )
@@ -162,14 +187,10 @@ ${fields
 
   const copyToClipboard = () => {
     const code = generateCode();
-    const textArea = document.createElement("textarea");
-    textArea.value = code;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textArea);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+    navigator.clipboard.writeText(code).then(() => {
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    });
   };
 
   return (
@@ -212,7 +233,6 @@ ${fields
           <div className="flex items-center gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
             Preview
           </div>
-          <div className="flex items-center gap-3">{/* CLI */}</div>
         </header>
 
         <div className="flex-1 overflow-y-auto p-12 flex justify-center items-start">
@@ -274,7 +294,7 @@ ${fields
                           <button
                             type="button"
                             onClick={() => setEditingFieldId(field.id)}
-                            className="p-2 bg-white border border-slate-200 rounded-md text-slate-500 hover:text-slate-900 shadow-sm"
+                            className="p-2 bg-white border border-slate-200 rounded-md text-slate-400 hover:text-slate-900 shadow-sm"
                           >
                             <Edit2 size={14} />
                           </button>
@@ -287,7 +307,7 @@ ${fields
                           </button>
                         </div>
                         <div className="space-y-3">
-                          <label className="text-sm font-semibold text-slate-900">
+                          <label className="text-sm font-semibold text-slate-400">
                             {field.label}{" "}
                             {field.required && (
                               <span className="text-red-500 ml-0.5">*</span>
@@ -300,7 +320,7 @@ ${fields
                                 handleInputChange(field.id, e.target.value)
                               }
                               placeholder={field.placeholder}
-                              className="w-full min-h-25 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-950 transition-shadow"
+                              className="w-full min-h-25 rounded-md border text-slate-800 border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-950 transition-shadow"
                             />
                           ) : (
                             <input
@@ -316,7 +336,7 @@ ${fields
                                 handleInputChange(field.id, e.target.value)
                               }
                               placeholder={field.placeholder}
-                              className="h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-950 transition-shadow"
+                              className="h-10 w-full rounded-md border text-slate-800 border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-950 transition-shadow"
                             />
                           )}
                           {field.description && (
@@ -338,19 +358,22 @@ ${fields
                   )}
                 </form>
               ) : (
-                <div
-                  className="bg-gray-950 dark:bg-gray-900 text-slate-300 p-0 font-mono text-xs h-125
-                 overflow-hidden flex flex-col"
-                >
+                <div className="bg-gray-950 dark:bg-gray-900 text-slate-300 p-0 font-mono text-xs h-125 overflow-hidden flex flex-col">
                   <div className="flex justify-between items-center px-6 py-3 border-b border-white/10 bg-white/5 shrink-0">
                     <button
                       onClick={copyToClipboard}
-                      className="text-[10px] items-center gap-2 hover:bg-white/20 text-white px-3 py-1.5 rounded-md transition-all font-bold "
+                      className="text-[10px] flex items-center gap-2 hover:bg-white/20 text-white px-3 py-1.5 rounded-md transition-all font-bold "
                     >
                       {isCopied ? (
-                        <Check size={12} className="text-green-400" />
+                        <>
+                          <Check size={12} className="text-green-400" />
+                          <span>Copied!</span>
+                        </>
                       ) : (
-                        <Copy size={12} />
+                        <>
+                          <Copy size={12} />
+                          <span>Copy Code</span>
+                        </>
                       )}
                     </button>
                   </div>
@@ -368,7 +391,7 @@ ${fields
 
       {/* Sidebar Pengaturan Kanan */}
       <aside
-        className={`w-80 border-l border-slate-200 bg-white flex flex-col shadow-2xl transition-transform duration-300 ease-in-out z-20 ${editingFieldId ? "translate-x-0" : "translate-x-full fixed right-0 h-full"}`}
+        className={`w-80 border-l text-slate-400 border-slate-200 bg-white flex flex-col shadow-2xl transition-transform duration-300 ease-in-out z-20 ${editingFieldId ? "translate-x-0" : "translate-x-full fixed right-0 h-full"}`}
       >
         <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50/50 mt-11">
           <div className="flex items-center gap-2">
@@ -397,7 +420,7 @@ ${fields
                 onChange={(e) =>
                   updateField(editingFieldId, { label: e.target.value })
                 }
-                className="w-full h-9 px-3 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950"
+                className="w-full h-9 px-3 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950 text-slate-900"
               />
             </div>
             <div className="space-y-2">
@@ -410,7 +433,7 @@ ${fields
                 onChange={(e) =>
                   updateField(editingFieldId, { placeholder: e.target.value })
                 }
-                className="w-full h-9 px-3 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950"
+                className="w-full h-9 px-3 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950 text-slate-900"
               />
             </div>
             <div className="space-y-2">
@@ -422,7 +445,7 @@ ${fields
                 onChange={(e) =>
                   updateField(editingFieldId, { description: e.target.value })
                 }
-                className="w-full p-3 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950"
+                className="w-full p-3 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-950 text-slate-900"
                 rows={3}
               />
             </div>
@@ -443,7 +466,7 @@ ${fields
             </div>
             <button
               onClick={() => setEditingFieldId(null)}
-              className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 text-sm font-bold rounded-md"
+              className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 text-sm font-bold rounded-md transition-colors"
             >
               Save
             </button>
